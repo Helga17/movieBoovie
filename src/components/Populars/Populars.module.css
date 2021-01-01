@@ -1,0 +1,22 @@
+.title{
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1e7eaa;
+}
+
+.trend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item {
+    margin-right: 10px;
+    font-size: 16;
+}
+
+.item img {
+    width: 155px;
+    height: 225px;
+    border-radius: 10px;
+}
