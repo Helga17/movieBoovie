@@ -1,7 +1,13 @@
 .app-wrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1190px;
     margin: 0 auto;
     padding: 0 15px;
     color: #282c34;
 }
+
+/* for dark theme 
+
+background: #282c34;
+color: #fff;
+*/

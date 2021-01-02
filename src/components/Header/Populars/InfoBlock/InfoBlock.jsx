@@ -4,10 +4,10 @@ import classes from './InfoBlock.module.css';
 const InfoBlock = () => {
     return (
         <div className={ classes.info }>
-            <div class={ classes.item }>
+            <div className={ classes.item }>
                 <img src="https://cinemusefilms.files.wordpress.com/2016/06/87-me-before-you.jpg" alt="" />
             </div>
-            <div class={ classes.item }>
+            <div className={ classes.item }>
                 <div>До зустрічі з тобою<span>7.8/10</span></div>
                 <div>#Genre #Genre</div>
                 <div className={classes.description}>

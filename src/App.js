@@ -1,21 +1,23 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Cinema from './components/Cinema/Cinema';
-import InfoBlock from './components/InfoBlock/InfoBlock';
 import Navbar from './components/Navbar/Navbar';
-import Populars from './components/Populars/Populars';
 import Footer from './components/Footer/Footer';
+import Movies from './components/Movies/Movies';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="app-wrapper">
-      <Navbar />
-      <Header />
-      <Populars />
-      <InfoBlock />
-      <Cinema />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Route path='/main' render={ () => <Header titlesPopular={props.titlesPopular} />}/>
+          <Route path='/allmovies' component={ Movies } />
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
+    
   );
 }
 

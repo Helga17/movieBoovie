@@ -1,0 +1,21 @@
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item {
+    margin-right: 10px;
+    font-size: 16;
+    margin-bottom: 20px;
+}
+
+.item img {
+    width: 155px;
+    height: 225px;
+    border-radius: 10px;
+}
+
+.title{
+    width: 155px;
+}
