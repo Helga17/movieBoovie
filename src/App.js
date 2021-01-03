@@ -11,7 +11,7 @@ const App = (props) => {
       <div className="app-wrapper">
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path='/main' render={ () => <Header titlesPopular={props.titlesPopular} />}/>
+          <Route path='/' render={ () => <Header titlePopulars={props.titlePopulars} />}/>
           <Route path='/allmovies' component={ Movies } />
         </div>
         <Footer />
