@@ -1,7 +1,7 @@
 .overview {
     display: flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
 }
 
 .poster img {
@@ -37,6 +37,7 @@ p{
 
 .description {
     margin-top: 20px;
+    line-height: 1.5;
 }
 
 .moments {
@@ -47,7 +48,7 @@ p{
 
 .moment img {
     width: 290px;
-    height: 195px;
+    height:190px;
 }
 
 .actors {
@@ -61,5 +62,5 @@ p{
 
 .actor img {
     width: 140px;
-    height: 185px;
+    height: 190px;
 }

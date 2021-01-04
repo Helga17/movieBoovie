@@ -13,12 +13,9 @@ const Navbar = () => {
                 <div className={classes.item}>
                     <NavLink to="/frida">Frida</NavLink>
                 </div>
-                {/*<div className={classes.item}>
-                    ПОШУК
-                </div>
                 <div className={classes.item}>
-                    Профіль
-                </div> */}
+                    <NavLink to="/watchlist">Watchlist</NavLink>
+                </div>
             </nav>
         </div>
     );
