@@ -7,9 +7,8 @@ const Title = (props) => {
     return (
         <div className={classes.item}>
             <img src={props.image} />
-            <div className={classes.text}>{props.title}</div>
+            <div className={classes.title}>{props.title}</div>
         </div>
-      
     );
 }
 
@@ -33,11 +32,11 @@ const Populars = (props) => {
                 <h3>У тренді</h3>
                 <NavLink to="/allmovies">Усі фільми</NavLink>
             </div>
-                <div className={classes.trend}>
-                    { popularElements }
-                </div>
-
-                <InfoBlock />
+            <div className={classes.trend}>
+                { popularElements }
+            </div>
+            
+            <InfoBlock />
         </div>
     );
 }

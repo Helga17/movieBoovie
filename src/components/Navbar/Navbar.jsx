@@ -10,10 +10,10 @@ const Navbar = () => {
                 <div className={classes.item}>
                     <NavLink to="/allmovies">Усі жанри</NavLink>
                 </div>
-                 {/*<div className={classes.item}>
-                    За весь час
-                </div>
                 <div className={classes.item}>
+                    <NavLink to="/frida">Frida</NavLink>
+                </div>
+                {/*<div className={classes.item}>
                     ПОШУК
                 </div>
                 <div className={classes.item}>
