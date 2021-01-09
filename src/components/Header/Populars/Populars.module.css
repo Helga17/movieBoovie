@@ -1,4 +1,5 @@
 .title{
+    /* width: 155px; */
     margin-bottom: 20px;
     font-size: 22px;
     color: #1e7eaa;
@@ -12,7 +13,8 @@
 
 .item {
     margin-right: 10px;
-    font-size: 16;
+    font-size: 18;
+    color: #232;
 }
 
 .item img {
@@ -21,6 +23,6 @@
     border-radius: 10px;
 }
 
-.title {
+.name{
     width: 155px;
 }

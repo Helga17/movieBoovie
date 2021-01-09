@@ -1,11 +1,16 @@
 import React from 'react';
 import classes from './InfoBlock.module.css';
+import {movies} from '../../../../data/movies';
+import { useParams } from "react-router-dom";
 
-const InfoBlock = () => {
+const InfoBlock = (props) => {
+    let { id } = useParams();
+    let movie = movies.find(movie => movie.id === parseInt(id));
     return (
         <div className={ classes.info }>
             <div className={ classes.item }>
                 <img src="https://cinemusefilms.files.wordpress.com/2016/06/87-me-before-you.jpg" alt="" />
+                {/* <img src={image} alt=""/> */}
             </div>
             <div className={ classes.item }>
                 <div>До зустрічі з тобою<span>7.8/10</span></div>

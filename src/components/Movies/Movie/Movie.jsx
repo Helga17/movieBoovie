@@ -2,44 +2,25 @@ import React from 'react';
 import classes from './Movie.module.css';
 import Overview from '../../Overview/Overview';
 import { movies } from "../../../data/movies";
-import {
-    useParams
-} from "react-router-dom";
-
-function Moment(props) {
-    return (
-        <div className={classes.moment}>
-            <img src={props.image} alt={''}/>
-        </div>
-    );
-}
-
-function Actor(props) {
-    return (
-        <div className={classes.actor}>
-            <img src={props.image} alt={""}/>
-            <p className={classes}>{props.name}</p>
-            <p className={classes}>{props.role}</p>
-        </div>
-    );
-}
+import { useParams } from "react-router-dom";
 
 const Movie = (props) => {
     let { id } = useParams();
     let movie = movies.find(movie => movie.id === parseInt(id));
-    const owerviewElement = <Overview item={movie} />
+    const overviewElement = <Overview item={movie} />
 
-    let momentElements = movie.moments ? movie.moments.map(moment => <Moment key={moment.id} image={moment.image} />) : null;
+    let momentElements = movie.moments ? movie.moments.map(moment => (<div key={moment.id} className={classes.moment}><img src={moment.image} alt={""} /></div>)) : null;
 
-    let actorElements = movie.actors ? movie.actors.map(actor => <Actor key={actor.id} image={actor.image} name={actor.actor} role={actor.role} />) : null;
+    let actorElements = movie.actors ? movie.actors.map(actor => (<div key={actor.id} className={classes.actor}><img src={actor.image} alt={""} />
+        <p className={classes}>{actor.actor}</p><p className={classes}>{actor.role}</p></div>)) : null;
 
-    return ( movie &&
+    return (movie &&
         <div className={classes.movies}>
             <div className={classes.overview}>
                 <div className={classes.poster}>
                     <img src={movie.image} alt='frida' />
                 </div>
-                {owerviewElement}
+                {overviewElement}
             </div>
             <div className={classes.subtitle}>Моменти кіно</div>
             <div className={classes.moments}>

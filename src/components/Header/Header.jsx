@@ -1,5 +1,5 @@
 import React from 'react';
-import Cinema from './Cinema/Cinema';
+import Media from './Media/Media';
 import classes from './Header.module.css';
 import Populars from './Populars/Populars';
 
@@ -28,7 +28,7 @@ const Header = (props) => {
                 { headerElements }
             </div>
             <Populars />
-            <Cinema />
+            <Media />
         </div>
        
     );

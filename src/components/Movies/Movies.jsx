@@ -15,7 +15,7 @@ function Title(props) {
 }
 
 const Movies = (props) => {
-    console.log(movies)
+    
     let movieElements = movies.map(movie => <Title key={movie.id} item={movie} />);
 
     return (

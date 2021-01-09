@@ -1,7 +1,6 @@
 .overview {
     display: flex;
     flex-direction: row;
-    justify-content: center;
 }
 
 .poster img {
