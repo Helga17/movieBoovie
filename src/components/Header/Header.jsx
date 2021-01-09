@@ -6,7 +6,7 @@ import Populars from './Populars/Populars';
 const Title = (props) => {
     return (
         <div className={classes.item}>
-            <img src={props.image} />
+            <img src={props.image} alt={""}/>
             <div className={classes.text}>{props.title}</div>
         </div>
     );
@@ -20,7 +20,7 @@ const Header = (props) => {
         {id: 3, title: 'Патерсон', image: 'https://kinonaszekspirowskim.pl/wp-content/uploads/2018/05/paterson-0-787x443.jpg'}
     ];
 
-    let headerElements = titleHeader.map(title => <Title className={classes.header} image={title.image} title={title.title} />);
+    let headerElements = titleHeader.map(title => <Title key={title.id} className={classes.header} image={title.image} title={title.title} />);
 
     return (
         <div>

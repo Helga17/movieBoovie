@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const Title = (props) => {
     return (
         <div className={classes.item}>
-            <img src={props.image} />
+            <img src={props.image} alt={props.title}/>
             <div className={classes.title}>{props.title}</div>
         </div>
     );

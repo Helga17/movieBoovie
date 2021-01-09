@@ -8,13 +8,21 @@
     font-size: 16px;
 }
 
-.item img {
-    width: 100px;
-    height: 150px;
-}
-.item{
-    margin-top: 10px;
+.inner{
+    margin: 10px 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    border-bottom: 1px solid rgb(222, 216, 216);
+}
+
+.item img {
+    width: 100px;
+    height: 140px;
+}
+
+.info {
+    margin-left: 20px;
+    text-align: justify;
 }

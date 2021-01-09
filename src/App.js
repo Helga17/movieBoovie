@@ -5,19 +5,24 @@ import Footer from './components/Footer/Footer';
 import Movies from './components/Movies/Movies';
 import Movie from './components/Movies/Movie/Movie';
 import Watchlist from './components/Watchlist/Watchlist';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const App = (props) => {
+  
   return (
     <BrowserRouter>
+    
       <div className="app-wrapper">
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path='/main' render={ () => <Header titlePopulars={props.titlePopulars} />}/>
-          {/* <Route path='/allmovies' component={ Movies } /> */}
-          <Route path='/allmovies' render={ () => <Movies />} />
-          <Route path='/frida' render={ () => <Movie />} />
+        <Switch>
+          <Route path='/' exact render={ () => <Header titlePopulars={props.titlePopulars} />}/>
+          <Route path='/allmovies' component={ Movies } />
+          {/* <Route path='/allmovies' render={ () => <Movies />} /> */}
+          {/* <Route path='/frida' render={ () => <Movie />} /> */}
           <Route path='/watchlist' render={ () => <Watchlist /> } />
+          <Route path='/:id' children={<Movie />} />
+          </Switch>
         </div>
         <Footer />
       </div>
