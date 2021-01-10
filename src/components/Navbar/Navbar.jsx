@@ -13,6 +13,9 @@ const Navbar = () => {
                 <div className={classes.item}>
                     <NavLink to="/watchlist">Watchlist</NavLink>
                 </div>
+                <div className={classes.item}>
+                    <NavLink to="/checklist">Checklist</NavLink>
+                </div>
             </nav>
         </div>
     );

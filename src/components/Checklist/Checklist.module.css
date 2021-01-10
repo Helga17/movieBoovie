@@ -1,0 +1,28 @@
+.label {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1e7eaa;
+}
+
+.title{
+    font-size: 16px;
+}
+
+.inner{
+    margin: 10px 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(222, 216, 216);
+}
+
+.item img {
+    width: 100px;
+    height: 140px;
+}
+
+.info {
+    margin-left: 20px;
+    text-align: justify;
+    width: 80%;
+}

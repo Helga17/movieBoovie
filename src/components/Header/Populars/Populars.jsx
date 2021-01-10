@@ -1,36 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Populars.module.css';
 import InfoBlock from './InfoBlock/InfoBlock';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { movies as moviesData } from '../../../data/movies';
 
-
-function Title(props) {
-    return (
-        <Link key={props.item.id} to={`/${props.item.id}`}>
-            <div className={classes.item}>
-                <img src={props.item.image} alt=""/>
-                <div className={classes.title}>{props.item.title}</div>
-            </div>
-        </Link>
-    );
-}
-
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 const Populars = (props) => {
-    const n = getRandomArbitrary(7, 8);
-    
-    const shuffledMovie = moviesData.sort(() => 0.5 - Math.random());
+    const popularMovies = moviesData.filter(movie => movie.isPopular);
+    let [currentIndex, setCurrentIndex] = useState(0);
+    let [activeElement, setActiveElement] = useState(popularMovies[currentIndex]);
 
-    const randomMovie = shuffledMovie.slice(0, n);
+    useEffect(() => {
+        const timer = setInterval(() => {
+            let index = currentIndex + 1;
+            
+            if (currentIndex === popularMovies.length - 1) {
+                setCurrentIndex(0);
+            } else {
+                setCurrentIndex(index);
+            }
 
-    let popularElements = randomMovie.map(popular => (<div className={classes.item} key={popular.id}><img src={popular.image} alt="" />
-        <div className={classes.name}>{popular.title}</div></div>));
+            if (typeof popularMovies[currentIndex] !== "undefined") {
+                setActiveElement(popularMovies[currentIndex]);
+            }
 
+        }, 5000);
+        // clearing interval
+        return () => clearInterval(timer);
+    });
+
+    const handleActiveElement = (element, index) => {
+        setCurrentIndex(index);
+        setActiveElement(element);
+    };
+
+    let popularElements = popularMovies.map((popular, index) => {
+        const style = activeElement.id === popular.id ? {backgroundColor: "green"} : {};
+
+        return (
+            <div key={popular.id} className={classes.item} style={style} onClick={() => handleActiveElement(popular, index)}>
+                <img src={popular.image} alt="" />
+                <div className={classes.name}>{popular.title}</div>
+            </div>
+        )
+    });
+
+console.log(popularMovies, activeElement);
 
     return (
         <div>
@@ -39,13 +53,10 @@ const Populars = (props) => {
                 <NavLink to="/allmovies">Усі фільми</NavLink>
             </div>
             <div className={classes.trend}>
-            {/* <Link key={props.item.id} to={`/${props.item.id}`}> */}
-                { popularElements }
-            {/* </Link> */}
-                
+                {popularElements}
             </div>
-            
-            <InfoBlock />
+
+            {activeElement && <InfoBlock activeElement={activeElement} />}
         </div>
     );
 }
