@@ -10,8 +10,8 @@ const InfoBlock = (props) => {
                 <img src={props.activeElement.image || ''} alt={""} />
             </div>
             <div className={ classes.item }>
-                <div>{props.activeElement.title}<span>{props.activeElement.rating}</span></div>
-                <div>{props.activeElement.outline}</div>
+                <div className={classes.title}>{props.activeElement.title}<span className={classes.rating}>{props.activeElement.rating} <span className={classes.from}> / 10</span></span></div>
+                <div className={classes.outline}>{props.activeElement.outline} | {props.activeElement.year}</div>
                 <div className={classes.description}>
                     {props.activeElement.description}
                 </div>

@@ -20,9 +20,6 @@ const Movie = (props) => {
 
     let momentElements = movie.moments ? movie.moments.map(moment => (<div key={moment.id} className={classes.moment}><img src={moment.image} alt={""} /></div>)) : null;
 
-    // let actorElements = movie.actors ? movie.actors.map(actor => (<div key={actor.id} className={classes.actor}><img src={actor.image} alt={""} />
-    //     <p className={classes}>{actor.actor}</p><p className={classes}>{actor.role}</p></div>)) : null;
-
     return (movie &&
         <div className={classes.movies}>
             <div className={classes.overview}>

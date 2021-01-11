@@ -34,7 +34,7 @@ const Populars = (props) => {
     };
 
     let popularElements = popularMovies.map((popular, index) => {
-        const style = activeElement.id === popular.id ? {backgroundColor: "green"} : {};
+        const style = activeElement.id === popular.id ? {opacity: 1} : {opacity: 0.55};
 
         return (
             <div key={popular.id} className={classes.item} style={style} onClick={() => handleActiveElement(popular, index)}>

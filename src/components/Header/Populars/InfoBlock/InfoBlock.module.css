@@ -19,18 +19,44 @@ h1, h2, h3, h4, h5, h6{
     height: 340px;
     border-radius: 10px;
     display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.rating{
+    margin-left: 20px;
+    color: #000;
+    font-size: 16px;
+}
+
+.from{
+    color: rgb(94, 90, 90);
+}
+
+.outline{
+    margin: 5px 0;
+    color: rgb(119, 116, 116);
+    font-size: 15px;
 }
 
 .description {
-    margin-bottom: 60px;
+    margin-top: 20px;
+    line-height: 1.2;
 }
 
 .btn {
-    
     text-decoration: none;
     color: #1e7eaa;
     background: transparent;
     padding: 16px 16px;
     border: 1px solid #92aec5;
     border-radius: 15px;
+    position: absolute;
+    bottom: 2px;
 }

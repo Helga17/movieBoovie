@@ -16,11 +16,21 @@ const Actor = (props) => {
 
     return (
         <div>
-            <div key={actor.id}><img src={actor.image} alt="" />
-                <p className={classes}>{actor.actor}</p>
+            <div className={classes.actor}>
+                <span key={actor.id}><img src={actor.image} alt="" /></span>
+                <div className={classes.info}>
+                    <div className={classes.name}>{actor.actor}</div> 
+                    <div className={classes.born}>Народився(-лася): {actor.born}</div>
+                    <div className={classes.profession}>Актор(-ка)  Озвучувач(-ка)</div>
+                </div>
             </div>
-            {movieElements}
+            <h2>Фільмографія</h2>
+            <div className={classes.movie}>
+                {movieElements} 
+            </div>
+           
         </div>
+
     );
 }
 

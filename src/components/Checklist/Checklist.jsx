@@ -30,12 +30,12 @@ const Checklist = (props) => {
                 <img src={item.image} alt="" />
             </div>
             <div className={classes.info}>
-                <h2>{item.title}</h2><span>{item.rating}</span>
-                <p>{item.originalTitle}</p>
-                <p>{item.outline}</p>
+                <h2 className={classes.title}>{item.title}</h2><span className={classes.rating}>{item.rating}/10</span>
+                <p className={classes.originalTitle}>{item.originalTitle}</p>
+                <p className={classes.outline}>{item.outline}</p>
                 <div className={classes.description}>{item.description.slice(0,255)}...</div>
             </div>
-            <textarea></textarea>
+            {/* <textarea></textarea> */}
         </div>
     ))
 

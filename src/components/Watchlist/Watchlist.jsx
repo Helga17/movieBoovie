@@ -2,19 +2,9 @@ import React, { useState } from 'react';
 import classes from './Watchlist.module.css';
 import { movies as moviesData } from '../../data/movies';
 
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 const Watchlist = (props) => {
-    // const n = getRandomArbitrary(1, 6);
-
-    // const shuffledMovies = moviesData.sort(() => 0.5 - Math.random());
-
-    // const randomMovies = shuffledMovies.slice(0, n);
 
     const [movies, setMovies] = useState(moviesData);
-
 
     const sortByAlphabet = () => {
         const clonedMovies = [...movies];
