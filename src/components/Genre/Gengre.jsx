@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 
 const Genre = (props) => {
     let { title } = useParams();
-    console.log(props);
 
     const genre = genresData.find(genre => genre.title === title);
 
@@ -22,7 +21,6 @@ const Genre = (props) => {
         </Link>
     })
 
-    console.log(genre, movies);
     return (
         <div>
             {movieElements}

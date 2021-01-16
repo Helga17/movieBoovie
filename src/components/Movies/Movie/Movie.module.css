@@ -1,12 +1,13 @@
 .overview {
     display: flex;
     flex-direction: row;
+    margin-bottom: 80px;
 }
 
 .poster img {
     width: 200px; 
-    height: 280px; 
-    object-fit: cover;
+    height: 250px; 
+    /* object-fit: cover; */
     border-radius: 10px;
 }
 
@@ -62,4 +63,13 @@ p{
 .actor img {
     width: 140px;
     height: 190px;
+}
+
+.link{
+    text-decoration: none;
+    color: #2d30f1;
+}
+
+.role{
+    font-size: 14px;
 }

@@ -1,0 +1,77 @@
+.title{
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1e7eaa;
+}
+.allMovies{
+    display: inline;
+    text-decoration: none;
+    color: #232c34;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.allMovies:hover{
+    color: #1e7eaa;
+    transition: 2s;
+}
+
+.trend {
+    width: 1190px;
+    padding-left: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.item {
+    margin-right: 6px;
+    font-size: 18;
+    color: #232;
+}
+
+.item:last-child{
+    margin-right: 0;
+}
+
+.item img {
+    width: 160px;
+    height: 225px;
+    border-radius: 10px;
+}
+
+.name{
+    width: 155px;
+    text-align: center;
+}
+
+button{
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    display: inline-block;
+    background: transparent;
+}
+
+.next {
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    margin: -50px 0 0 0;
+    border-left-color: #1e7eaa;
+    border-right: 0;
+    z-index: 10000;
+}
+
+.prev {
+    position: absolute;
+    left: -28px;
+    top: 50%;
+    margin: -50px 0 0 0;
+    border-right-color: #1e7eaa;
+    border-left: 0;
+    z-index: 10000;
+}

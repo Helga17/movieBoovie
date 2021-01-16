@@ -1,6 +1,6 @@
 import './App.css';
+import Content from './components/Content/Content';
 import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Movies from './components/Movies/Movies';
 import Movie from './components/Movies/Movie/Movie';
@@ -14,21 +14,19 @@ const App = (props) => {
   
   return (
     <BrowserRouter>
-    
       <div className="app-wrapper">
-        <Navbar />
-        <div className="app-wrapper-content">
-        <Switch>
-          <Route path='/' exact render={ () => <Header titlePopulars={props.titlePopulars} />}/>
-          <Route path='/allmovies' component={ Movies } />
-          <Route path='/watchlist' component={Watchlist } />
-          <Route path='/checklist' component={Checklist } />
-          <Route path='/genres/:title' component={ Genre } />
-          <Route path='/actors/:id' component={ Actor } />
-          <Route path='/:id' component={Movie} />
-          
-          </Switch>
-        </div>
+        <Header />
+          <div className="app-wrapper-content">
+            <Switch>
+              <Route path='/' exact render={ () => <Content titlePopulars={props.titlePopulars} />}/>
+              <Route path='/allmovies' component={ Movies } />
+              <Route path='/watchlist' component={Watchlist } />
+              <Route path='/checklist' component={Checklist } />
+              <Route path='/genres/:title' component={ Genre } />
+              <Route path='/actors/:id' component={ Actor } />
+              <Route path='/:id' component={Movie} />
+            </Switch>
+          </div>
         <Footer />
       </div>
     </BrowserRouter>

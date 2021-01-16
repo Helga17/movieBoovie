@@ -16,15 +16,16 @@ function Overview(props) {
 
     function addMovie () {
         let movie = movies.find(movie => movie.id === parseInt(id));
-        console.log('found movie:', movie);
-        let findMovie = JSON.stringify(movie);
+        let watchlist = JSON.parse(localStorage.getItem('movies'));
 
-        // const sortedMovies = findMovie.push(movie);
+        if(watchlist === null){
+            watchlist = [];
+        }
+        watchlist.push(movie);
         
-        // setMovies(sortedMovies);
+        setMovies(watchlist);
 
-        localStorage.setItem('Movie', findMovie);
-        console.log(findMovie)
+        localStorage.setItem('movies', JSON.stringify(watchlist));
     }
 
     return (

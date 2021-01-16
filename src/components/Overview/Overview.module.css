@@ -8,11 +8,13 @@
     color: black;
     padding: 12px 37px;
     background: #1e7eaa;
+    /* background: #f18c19; */
     cursor: pointer;
 
     position: absolute;
-    bottom: 2px;
+    bottom: -30px;
     left: -220px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .btn:hover{

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import classes from './Watchlist.module.css';
-import { movies as moviesData } from '../../data/movies';
+import { useParams } from "react-router-dom";
 
 const Watchlist = (props) => {
 
-    const [movies, setMovies] = useState(moviesData);
+    let watchlistMovies = JSON.parse(localStorage.getItem('movies'));
+
+    let { id } = useParams();
+    const [movies, setMovies] = useState(watchlistMovies);
 
     const sortByAlphabet = () => {
         const clonedMovies = [...movies];
@@ -26,9 +29,7 @@ const Watchlist = (props) => {
         setMovies(sortedMovies);
     }
 
-    // read about мутабельность 
     const sortByRating = () => {
-        console.log('sorting');
         const clonedMovies = [...movies];
         const sortedMovies = clonedMovies.sort(function (a, b) {
             return b.rating - a.rating;
@@ -58,17 +59,34 @@ const Watchlist = (props) => {
         }
     }
 
+    function movieDelete (props) {
+        console.log(props)
+        // let movie = movies.find(movie => movie.id === parseInt(id)); 
+        let movie = movies.filter(movie => movie.id !== id)
+        console.log(movie)
+        let watchlist = JSON.parse(localStorage.getItem('movies'));
+
+        watchlist.splice(movie);
+        
+        setMovies(watchlist);
+
+        localStorage.setItem('movies', JSON.stringify(watchlist));
+    }
+      
     const watchlist = movies.map(item => (
         <div key={item.id} className={classes.inner}>
             <div className={classes.item}>
                 <img src={item.image} alt="" />
             </div>
+
             <div className={classes.info}>
                 <h2>{item.title}</h2><span>{item.rating}</span>
                 <p>{item.originalTitle}</p>
                 <p>{item.outline} {item.year}</p>
                 <div className={classes.description}>{item.description.slice(0, 255)}...</div>
             </div>
+
+            <div className={classes.btnDelete} onClick={movieDelete}>X</div>
         </div>
     ))
 

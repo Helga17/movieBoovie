@@ -5,7 +5,7 @@ import classes from './Movies.module.css';
 
 function Title(props) {
     return (
-        <Link key={props.item.id} to={`/${props.item.id}`}>
+        <Link className={classes.link} key={props.item.id} to={`/${props.item.id}`}>
             <div className={classes.item}>
                 <img src={props.item.image} alt=""/>
                 <div className={classes.title}>{props.item.title}</div>
