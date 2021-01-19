@@ -3,6 +3,9 @@ import Media from './Media/Media';
 import classes from './Content.module.css';
 import Populars from './Populars/Populars';
 
+// отображение главной страницы Content.jsx
+
+
 const Title = (props) => {
     return (
         <div className={classes.item}>

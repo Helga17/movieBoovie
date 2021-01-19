@@ -42,35 +42,27 @@ const Watchlist = (props) => {
         const type = parseInt(event.target.value);
 
         switch (type) {
+            case 1: 
+            sortByAlphabet();
+            break;
+
             case 2:
                 sortByRating();
-                break;
-            
-            case 1: 
-                sortByAlphabet();
                 break;
 
             case 3:
                 sortByYear();
                 break;
+
             default: 
                 break
-
         }
     }
 
-    function movieDelete (props) {
-        console.log(props)
-        // let movie = movies.find(movie => movie.id === parseInt(id)); 
-        let movie = movies.filter(movie => movie.id !== id)
-        console.log(movie)
-        let watchlist = JSON.parse(localStorage.getItem('movies'));
-
-        watchlist.splice(movie);
-        
-        setMovies(watchlist);
-
-        localStorage.setItem('movies', JSON.stringify(watchlist));
+    function handleRemove (id) {
+        let filteredMovies = movies.filter((item) => item.id !== id)
+        setMovies(filteredMovies);
+        localStorage.setItem('movies', JSON.stringify(filteredMovies));
     }
       
     const watchlist = movies.map(item => (
@@ -86,7 +78,7 @@ const Watchlist = (props) => {
                 <div className={classes.description}>{item.description.slice(0, 255)}...</div>
             </div>
 
-            <div className={classes.btnDelete} onClick={movieDelete}>X</div>
+            <div className={classes.btnDelete} onClick={() => handleRemove(item.id)}>X</div>
         </div>
     ))
 
@@ -99,7 +91,7 @@ const Watchlist = (props) => {
                 <span>3 спостереження</span>
                 <span>Сортувати за</span>
                 <select name="" id="" onChange={handleSorting} value={0}>
-                    <option disabled value={0}>choose option</option>
+                    <option disabled value={0}>Обрати за</option>
                     <option value={1}>за алфавітом</option>
                     <option value={2}>за рейтингом</option>
                     <option value={3}>за датою</option>
@@ -108,7 +100,6 @@ const Watchlist = (props) => {
             <div>
                 {watchlist}
             </div>
-
         </div>
     );
 }

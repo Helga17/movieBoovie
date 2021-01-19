@@ -4,6 +4,8 @@ import { genres as genresData } from '../../data/genres';
 import { Link, useParams } from 'react-router-dom';
 import { movies as moviesData } from '../../data/movies';
 
+// информация о фильме Movie.jsx
+
 function Overview(props) {
     const genres = genresData.filter(genre => props.item.genreIds.includes(genre.id));
 
@@ -35,7 +37,7 @@ function Overview(props) {
             <p>{props.item.outline} {genreElements} | {props.item.year}</p>
             <div className={classes.description}>{props.item.description}</div>
 
-            <div className={classes.btn} onClick={addMovie}>
+            <div className={classes.btn}  onClick={addMovie}>
                 Додати у список
             </div>
         </div>

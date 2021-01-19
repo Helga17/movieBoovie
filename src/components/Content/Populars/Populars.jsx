@@ -4,6 +4,8 @@ import InfoBlock from './InfoBlock/InfoBlock';
 import { NavLink } from 'react-router-dom';
 import { movies as moviesData } from '../../../data/movies';
 
+// отображение популярных фильмов на главной странице Content.jsx
+
 const Populars = (props) => {
     const popularMovies = moviesData.filter(movie => movie.isPopular);
     let [currentIndex, setCurrentIndex] = useState(0);

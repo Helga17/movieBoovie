@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
+// навигация
+
 const Header = () => {
     return (
         <div className={classes.inner}>
