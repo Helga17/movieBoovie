@@ -17,7 +17,8 @@ export const movies = [
             { id: 3, image: 'https://www.sectorcine.com/wp-content/uploads/sectorcine/lossy/galerias/Galeri%CC%81aSC_Atonement4_Avv52FU.jpg' },
             { id: 4, image: 'https://uachatec.com.mx/wp-content/uploads/2019/04/Expiacio%CC%81n-Deseo-y-Pecado.jpg' },
         ],
-        actorIds: [1, 2, 3, 4]
+        actorIds: [1, 2, 3, 4],
+        directorIds: [55]
     },
     {
         id: 2,
@@ -37,7 +38,8 @@ export const movies = [
             { id: 3, image: 'https://i1.wp.com/feminisminindia.com/wp-content/uploads/2020/10/05marriage1-superJumbo-v2.jpg?fit=2048%2C1420&ssl=1' },
             { id: 4, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dlHZDIzxU63Ni7nITbWTUWAEAGej0kf34w&usqp=CAU' },
         ],
-        actorIds: [5, 6, 7, 8]
+        actorIds: [5, 6, 7, 8],
+        directorIds: [56]
     },
     {
         id: 3,
@@ -57,7 +59,8 @@ export const movies = [
             { id: 3, image: 'https://i.guim.co.uk/img/media/84325e6e02fe38699ca7737da910b455b08523ad/0_48_1623_974/master/1623.jpg?width=1200&quality=85&auto=format&fit=max&s=14a8c5483486f6aa969943459641ef2f' },
             { id: 4, image: 'https://ca-times.brightspotcdn.com/dims4/default/9abcd9c/2147483647/strip/true/crop/974x548+25+0/resize/1200x675!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ffa%2Fac%2F943ce2cd460c86f1aca53e886415%2Fknives-out.jpg' },
         ],
-        actorIds: [9, 10, 11, 12]
+        actorIds: [9, 10, 11, 12],
+        directorIds: [57]
     },
     {
         id: 4,
@@ -77,7 +80,8 @@ export const movies = [
             { id: 3, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Gvjx3ccVRStSyqfFAw6WC2ooP3SpKLeC4Q&usqp=CAU' },
             { id: 4, image: 'https://ca-times.brightspotcdn.com/dims4/default/5f12063/2147483647/strip/true/crop/1492x1000+0+0/resize/1486x996!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3e%2F9f%2F11a8ea5244399b11c78e59e7649a%2Fkate-del-castillo.JPG' },
         ],
-        actorIds: [13, 14, 15, 16]
+        actorIds: [13, 14, 15, 16],
+        directorIds: [14, 58, 59, 60]
     },
     {
         id: 5, title: 'Зелена книга',
@@ -96,7 +100,8 @@ export const movies = [
             { id: 3, image: 'https://screenmusings.org/movie/blu-ray/Green-Book/images/Green-Book-049.jpg' },
             { id: 4, image: 'https://media1.popsugar-assets.com/files/thumbor/JrvsxGmYyB7j_F3a45QhfMinpdk/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/11/20/926/n/1922283/tmp_CHxgpO_9edf993c491d8427_8U02_D024_04604R.jpg' },
         ],
-        actorIds: [17, 18, 19 ]
+        actorIds: [17, 18, 19 ],
+        directorIds: [61]
     },
     {
         id: 6,
@@ -116,7 +121,8 @@ export const movies = [
             { id: 3, image: 'https://d2t8nixuow17vt.cloudfront.net/movie/shot/261772/h280_186664.jpg' },
             { id: 4, image: 'https://poradumo.com.ua/wp-content/uploads/2017/12/2fb80161857687bd6c134f1319302085.jpg' },
         ],
-        actorIds: [20, 21, 22, 23]
+        actorIds: [20, 21, 22, 23],
+        directorIds: [62]
     },
     {
         id: 7,
@@ -136,7 +142,8 @@ export const movies = [
             { id: 3, image: 'https://www.kinobusiness.com/upload/iblock/7cd/mby_07942r_novyy-razmer.jpg' },
             { id: 4, image: 'https://m.spletnik.ru/img/2016/02/dasha_night/20160203_sam.jpg' },
         ],
-        actorIds: [24, 25, 26, 27]
+        actorIds: [24, 25, 26, 27],
+        directorIds: [63]
     },
     {
         id: 8,
@@ -156,7 +163,8 @@ export const movies = [
             { id: 3, image: 'https://fangirlish.com/wp-content/uploads/2020/09/Closer.jpg' },
             { id: 4, image: 'https://4.bp.blogspot.com/_PfeoPMUjPrM/S7VygPgo9YI/AAAAAAAABC4/50csw4ckgSU/s1600/Closer_PortmanOwen.png' },
         ],
-        actorIds: [28, 29, 30, 31]
+        actorIds: [28, 29, 30, 31],
+        directorIds: [64]
     },
     {
         id: 9,
@@ -176,7 +184,8 @@ export const movies = [
             { id: 3, image: 'https://fs.kinomania.ru/image/file/film_frame/2/6a/26a687e2c21254f9d3038e25ff8511a3.355.237.jpeg' },
             { id: 4, image: 'https://www.film.ru/sites/default/files/images/Love-Simon-2018-03.jpg' },
         ],
-        actorIds: [32, 33, 34, 35]
+        actorIds: [32, 33, 34, 35],
+        directorIds: [65]
     },
     {
         id: 10,
@@ -196,7 +205,8 @@ export const movies = [
             { id: 3, image: 'https://i.insider.com/564cd4022491f990008b63a0?width=1100&format=jpeg&auto=webp' },
             { id: 4, image: 'https://www.pride.com/sites/default/files/carol-sarah-paulson.jpg' }
         ],
-        actorIds: [36, 37, 38, 39]
+        actorIds: [36, 37, 38, 39],
+        directorIds: [66]
     },
     {
         id: 11,
@@ -215,7 +225,8 @@ export const movies = [
             { id: 3, image: 'https://i.pinimg.com/originals/94/46/5f/94465f3586f6de2ee4dcb228d87bc5cb.png' },
             { id: 4, image: 'https://lh3.googleusercontent.com/proxy/1Ous98mnHd7JqyXWZGYsG_LUgIdAhLNlS5sYhUbqffZzGxJh7H430wk0USYRTBbWrYtoLN1TCB-78hkleBDvfgg__WcVVuAU2Ss6QOH0BXtn-u0vECLXIbtAIeYQ70No-KM' }
         ],
-        actorIds: [40, 41, 42, 43]
+        actorIds: [40, 41, 42, 43],
+        directorIds: [67]
     },
     {
         id: 12,
@@ -235,7 +246,8 @@ export const movies = [
             { id: 3, image: 'https://bestmoviecast.com/wp-content/uploads/2020/10/Holidate.jpg' },
             { id: 4, image: 'https://lh3.googleusercontent.com/proxy/F2OHLIyf45dqfdkR8heswoMunGpYdVaXH37j3ipopU_WCy3QfCLti0Jk-B_EuhpHNMNwFe4qJLUQtyHLsWBU8yIoIXgUgJlOR8e80Oo0aL2Urw' }
         ],
-        actorIds: [44, 45, 46, 47]
+        actorIds: [44, 45, 46, 47],
+        directorIds: [68]
     },
     {
         id: 13,
@@ -255,7 +267,8 @@ export const movies = [
             { id: 3, image: 'https://www.kino-teatr.ru/art/5688/80294.jpg' },
             { id: 4, image: 'https://posletitrov.ru/wp-content/uploads/2020/07/palm-springs3-1200x670-1.jpeg' }
         ],
-        actorIds: [48, 49, 50, 51]
+        actorIds: [48, 49, 50, 51],
+        directorIds: [69]
     },
     {
         id: 14,
@@ -275,6 +288,28 @@ export const movies = [
             { id: 3, image: 'https://screenqueens.files.wordpress.com/2018/09/17.jpg?w=640' },
             { id: 4, image: 'https://tricolortvmag.ru/upload/31f79a/170-sr008m.png' }
         ],
-        actorIds: [52, 53, 54]
+        actorIds: [52, 53, 54],
+        directorIds: [70]
+    },
+    {
+        id: 15,
+        title: 'Гордість і упередження',
+        image: 'https://upload.wikimedia.org/wikipedia/uk/9/90/Pride-and-prejudice2005.jpg',
+        rating: 8,
+        originalTitle: 'Pride and Prejudice (original title)',
+        outline: '2г 9хв |',
+        genreIds: [1, 3],
+        year: 2005,
+        isPopular: false,
+        description: "У центрі оповідання — небагата родина Беннетів, що складається з пана й пані Беннет та їхніх п'ятьох дочок — Джейн, Елізабет (Ліззі), Мері, Кетрин (Китті) і Лідії. Вони живуть на фермі у селі Лонгборн. Однак спадкоємцем цієї ферми є двоюрідний брат дівчат, племінник Беннета — пан Коллінз. Тому головною метою життя пані Беннет є скоріше й вдаліше видати заміж дочок — перш, ніж помре пан Беннет. Друга за віком дочка й головна героїня фільму, розумна та вільнодумна Елізабет, вірить, що шлюб повинен засновуватися тільки на справжньому коханні — і тому не квапиться вийти заміж.",
+
+        moments: [
+            { id: 1, image: 'https://lh3.googleusercontent.com/-SFWiIWXlLcw/TYXFW2gacbI/AAAAAAAAAYQ/Zk5P639M1EE/s1600/story.jpg' },
+            { id: 2, image: 'https://i.pinimg.com/originals/4a/2d/64/4a2d6401772e99086463882fface65e3.jpg' },
+            { id: 3, image: 'https://screenqueens.files.wordpress.com/2018/09/17.jpg?w=640' },
+            { id: 4, image: 'https://tricolortvmag.ru/upload/31f79a/170-sr008m.png' }
+        ],
+        actorIds: [1],
+
     }
 ];

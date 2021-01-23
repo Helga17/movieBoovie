@@ -1,17 +1,23 @@
+.link{
+    text-decoration: none;
+    color: #232c34;
+}
+
 .movies {
+    width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .item {
     margin-right: 10px;
     font-size: 16;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .item img {
-    width: 155px;
+    width: 160px;
     height: 225px;
     border-radius: 10px;
 }

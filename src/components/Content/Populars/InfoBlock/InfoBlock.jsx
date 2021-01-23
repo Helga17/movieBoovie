@@ -14,7 +14,7 @@ const InfoBlock = (props) => {
                 <div className={classes.description}>
                     {props.activeElement.description.slice(0, 280)}...
                 </div>
-                <Link className={classes.btn} key={props.activeElement.id} to={`/${props.activeElement.id}`}>
+                <Link className={classes.btn} key={props.activeElement.id} to={`movies/${props.activeElement.id}`}>
                     Детальніше
                 </Link>
             </div>

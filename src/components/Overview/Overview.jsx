@@ -1,45 +1,87 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './Overview.module.css';
-import { genres as genresData } from '../../data/genres';
-import { Link, useParams } from 'react-router-dom';
-import { movies as moviesData } from '../../data/movies';
+import { Link } from 'react-router-dom';
+import StarRatings from 'react-star-ratings';
 
 // информация о фильме Movie.jsx
 
 function Overview(props) {
-    const genres = genresData.filter(genre => props.item.genreIds.includes(genre.id));
 
-    const genreElements = genres.map(genre => {
-        return <span key={genre.id}><Link to={`/genres/${genre.title}`}>{genre.displayedTitle}</Link></span>
-    })
+    let userWatchlist = JSON.parse(localStorage.getItem('movies'));
+    if (userWatchlist === null) {
+        userWatchlist = [];
+    }
 
-    let { id } = useParams();
-    const [movies, setMovies] = useState(moviesData);
+    const [watchlist, setWatchlist] = useState(JSON.parse(localStorage.getItem('movies')));
+    const [isMovieOnWatchlist, setIsMovieOnWatchlist] = useState(Boolean(watchlist.find(watchlistMovie => watchlistMovie.id === props.item.id)));
 
+    useEffect(() => {
+        setIsMovieOnWatchlist(Boolean(watchlist.find(watchlistMovie => watchlistMovie.id === props.item.id)), 'bool');
+    }, [watchlist, props.item.id])
+
+    function handleRating (newRating, name) {
+        console.log(newRating, name);
+    }
+    
+
+    let genreElements = props.item.genres ? props.item.genres.map(genre => {
+        return <span key={genre.id}><Link to={'/genres/' + genre.id}>{genre.displayedTitle}</Link></span>
+    }) : [];
+
+    // добавление фильма в watchlist 
     function addMovie () {
-        let movie = movies.find(movie => movie.id === parseInt(id));
-        let watchlist = JSON.parse(localStorage.getItem('movies'));
+        watchlist.push(props.item);
 
-        if(watchlist === null){
-            watchlist = [];
-        }
-        watchlist.push(movie);
-        
-        setMovies(watchlist);
-
+        setWatchlist(watchlist);
+        setIsMovieOnWatchlist(!isMovieOnWatchlist);
         localStorage.setItem('movies', JSON.stringify(watchlist));
+        alert('Фільм додан');
+    }
+
+    //удаление из watchlist
+    function removeMovie () {
+        let watchlistFiltered = watchlist.filter(watchlistMovie => watchlistMovie.id !== props.item.id);
+        
+        setWatchlist(watchlistFiltered);
+        setIsMovieOnWatchlist(!isMovieOnWatchlist);
+        localStorage.setItem('movies', JSON.stringify(watchlistFiltered));
+        alert('Фільм видален');
+    }
+
+    // смена состояния при нажатии
+    function Button () {
+        if (isMovieOnWatchlist){
+            return ( 
+                <div className={classes.btnRemove}   onClick={() => removeMovie()}>
+                    Видалити 
+                </div>
+            );
+        }else{
+             return (
+                <div className={classes.btnAdd}  onClick={() => addMovie()}>
+                    Додати
+                </div>
+            );
+        }
     }
 
     return (
         <div className={classes.info}>
             <h2>{props.item.title}</h2><span>{props.item.rating}</span>
+            <StarRatings
+                    rating={4}
+                    starRatedColor="red"
+                    numberOfStars={10}
+                    changeRating={handleRating}
+                    starDimension={'25'}
+                    name='rating'
+                />
+            
             <p >{props.item.originalTitle}</p>
             <p>{props.item.outline} {genreElements} | {props.item.year}</p>
             <div className={classes.description}>{props.item.description}</div>
 
-            <div className={classes.btn}  onClick={addMovie}>
-                Додати у список
-            </div>
+            <Button/>
         </div>
     );
 }

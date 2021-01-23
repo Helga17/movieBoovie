@@ -15,8 +15,6 @@ h1, h2, h3, h4, h5, h6{
 
 .item {
     flex: 0 40%;
-    /* width: 100px; */
-    /* padding: 0 40px; */
 }
 
 .item img{

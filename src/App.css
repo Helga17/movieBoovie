@@ -10,15 +10,3 @@ h1, h2, h3, h4, h5, h6, p, span{
     margin: 0;
     padding: 0;
 }
-
-.dark {
-    background-color: #282c34;
-    color: #ffffff;
-}
-
-
-/* for dark theme 
-
-background: #282c34;
-color: #fff;
-*/

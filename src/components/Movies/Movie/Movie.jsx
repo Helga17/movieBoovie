@@ -1,30 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Movie.module.css';
 import Overview from '../../Overview/Overview';
-import { movies } from '../../../data/movies';
-import { actors as actorsData } from '../../../data/actors';
 import { Link, useParams } from "react-router-dom";
+import axios from 'axios';
+// import { directors } from '../../../data/directors';
 
 const Movie = (props) => {
     let { id } = useParams();
-    let movie = movies.find(movie => movie.id === parseInt(id));
+
+    const [movie, setMovie] = useState({});
+
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/movies/' + id)
+            .then(result => {
+                const movieData = result.data;
+
+                setMovie(movieData);
+            });
+    }, [id]);
+
     const overviewElement = <Overview item={movie} />
 
-    const actors = actorsData.filter(actor => movie.actorIds.includes(actor.id));
+    let actorElements = movie.actors ? movie.actors.map(actor => {
+        const imageLink = `http://127.0.0.1:8000/${actor.image}`;
 
-    let actorElements = actors.map(actor => {
-        return <div key={actor.id} className={classes.actor}><img src={actor.image} alt={""} />
-            <p><Link className={classes.link} to={`/actors/${actor.id}`}>{actor.actor}</Link></p>
-            <p className={classes.role}>{actor.role}</p></div>
-    });
+        return (
+            <div key={actor.id} className={classes.actor}><img src={imageLink} alt={""} />
+                <p><Link className={classes.link} to={`/actors/${actor.id}`}>{actor.first_name} {actor.last_name}</Link></p>
+                <p className={classes.role}>{actor.role}</p></div>
+        );
+    }) : [];
 
-    let momentElements = movie.moments ? movie.moments.map(moment => (<div key={moment.id} className={classes.moment}><img src={moment.image} alt={""} /></div>)) : null;
+    let momentElements = movie.moments ? movie.moments.map(moment => {
+        const imageLink = `http://127.0.0.1:8000/${moment.image}`;
+        return (
+            <div key={moment.id} className={classes.moment}><img src={imageLink} alt={""} /></div>
+        );
+    }) : [];
+
+    // let directorElements = movie.directors ? movie.directors.map(director => {
+    //     return (
+    //         <span key={director.id}>{director.name}</span>
+    //     );
+    // }) : [];
 
     return (movie &&
         <div className={classes.movies}>
             <div className={classes.overview}>
                 <div className={classes.poster}>
-                    <img src={movie.image} alt='frida' />
+                    <img src={movie.image} alt="" />
                 </div>
                 {overviewElement}
             </div>
@@ -37,10 +61,11 @@ const Movie = (props) => {
             <div className={classes.actors}>
                 {actorElements}
             </div>
+
             <div className={classes.subtitle}>
                 <span>Режисер:</span>
                 <span className={classes.filmmaker}>
-                    {/* <span>Джулі Теймор</span> */}
+                    {/* {directorElements} */}
                 </span>
             </div>
         </div>

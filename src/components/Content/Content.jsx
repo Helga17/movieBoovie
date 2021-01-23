@@ -1,39 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Media from './Media/Media';
 import classes from './Content.module.css';
 import Populars from './Populars/Populars';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-// отображение главной страницы Content.jsx
-
-
-const Title = (props) => {
-    return (
-        <div className={classes.item}>
-            <img src={props.image} alt={""}/>
-            <div className={classes.text}>{props.title}</div>
-        </div>
-    );
-}
 
 const Content = (props) => {
 
-    let titleContent = [
-        {id: 1, title: 'Вона', image: 'https://televisa.brightspotcdn.com/9c/7e/f1daaa1e4a07bb1efcc44835e5a7/jp18.jpg'},
-        {id: 2, title: 'Маленькі Жінки', image: 'https://img.huffingtonpost.com/asset/5d52e0352200005600f52a62.png?cache=ukwtq8j2oz&ops=1778_1000'},
-        {id: 3, title: 'Патерсон', image: 'https://kinonaszekspirowskim.pl/wp-content/uploads/2018/05/paterson-0-787x443.jpg'}
-    ];
+    const [movies, setMovies] = useState([]);
 
-    let contentElements = titleContent.map(title => <Title key={title.id} className={classes.content} image={title.image} title={title.title} />);
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/movies?limit=3')
+            .then(result => {
+                const moviesData = result.data;
+
+                setMovies(moviesData);
+            });
+    }, []);
+
+    let contentElements = movies.map(movie => {
+        return (
+            <div key={movie.id} className={classes.item}>
+                <Link to={`movies/${movie.id}`}>
+                    <img src={movie.image} alt={""} />
+                    <div className={classes.text}>{movie.title}</div>
+                </Link>
+            </div>
+        );
+    });
 
     return (
         <div>
             <div className={classes.card}>
-                { contentElements }
+                {movies.length > 0 && contentElements}
             </div>
             <Populars />
             <Media />
         </div>
-       
+
     );
 }
 

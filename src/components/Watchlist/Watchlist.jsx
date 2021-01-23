@@ -1,34 +1,37 @@
 import React, { useState } from 'react';
 import classes from './Watchlist.module.css';
-import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Watchlist = (props) => {
 
+    // let { id } = useParams();
     let watchlistMovies = JSON.parse(localStorage.getItem('movies'));
 
-    let { id } = useParams();
     const [movies, setMovies] = useState(watchlistMovies);
 
+    // сортировка за алфавитом
     const sortByAlphabet = () => {
         const clonedMovies = [...movies];
-        const sortedMovies = clonedMovies.sort(function (a, b){
-            if(a.title < b.title) { return -1; }
-            if(a.title > b.title) { return 1; }
+        const sortedMovies = clonedMovies.sort(function (a, b) {
+            if (a.title < b.title) { return -1; }
+            if (a.title > b.title) { return 1; }
             return 0;
         });
 
         setMovies(sortedMovies);
     }
 
+    // сортировка за годом
     const sortByYear = () => {
         const clonedMovies = [...movies];
         const sortedMovies = clonedMovies.sort(function (a, b) {
             return b.year - a.year;
         });
-        
+
         setMovies(sortedMovies);
     }
 
+    // сортировка за рейтингом
     const sortByRating = () => {
         const clonedMovies = [...movies];
         const sortedMovies = clonedMovies.sort(function (a, b) {
@@ -42,9 +45,9 @@ const Watchlist = (props) => {
         const type = parseInt(event.target.value);
 
         switch (type) {
-            case 1: 
-            sortByAlphabet();
-            break;
+            case 1:
+                sortByAlphabet();
+                break;
 
             case 2:
                 sortByRating();
@@ -54,17 +57,18 @@ const Watchlist = (props) => {
                 sortByYear();
                 break;
 
-            default: 
+            default:
                 break
         }
     }
 
-    function handleRemove (id) {
+    // удаление из watchlist 
+    function handleRemove(id) {
         let filteredMovies = movies.filter((item) => item.id !== id)
         setMovies(filteredMovies);
         localStorage.setItem('movies', JSON.stringify(filteredMovies));
     }
-      
+
     const watchlist = movies.map(item => (
         <div key={item.id} className={classes.inner}>
             <div className={classes.item}>
@@ -72,7 +76,10 @@ const Watchlist = (props) => {
             </div>
 
             <div className={classes.info}>
-                <h2>{item.title}</h2><span>{item.rating}</span>
+                <Link key={item.id} to={`movies/${item.id}`} className={classes.link}>
+                    <h2>{item.title}</h2>
+                </Link>
+                <span>{item.rating}</span>
                 <p>{item.originalTitle}</p>
                 <p>{item.outline} {item.year}</p>
                 <div className={classes.description}>{item.description.slice(0, 255)}...</div>

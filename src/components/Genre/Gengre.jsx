@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Gengre.module.css';
-import {genres as genresData} from '../../data/genres';
-import {movies as moviesData} from '../../data/movies';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
+import axios from 'axios';
 
 const Genre = (props) => {
-    let { title } = useParams();
+    let { id } = useParams();
 
-    const genre = genresData.find(genre => genre.title === title);
+    const [genre, setGenre] = useState({});
 
-    const movies = moviesData.filter(movie => movie.genreIds.includes(genre.id));
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/genres/' + id)
+            .then(result => {
+                const genreData = result.data;
 
-    const movieElements = movies.map(movie => {
-        return <Link key={movie.id} to={`/${movie.id}`}>
-            <div className={classes.item}>
-                <img src={movie.image} alt=""/>
-                <div className={classes.title}>{movie.title}</div>
-            </div>
-        </Link>
-    })
+                setGenre(genreData);
+            });
+    }, [id]);
+
+    let movieElements = genre.movies ? genre.movies.map(movie => {
+        return (
+            <Link key={movie.id} to={`/movies/${movie.id}`} className={classes.link}>
+                <div className={classes.item}>
+                    <img src={movie.image} alt="" />
+                    <div className={classes.title}>{movie.title}</div>
+                </div>
+            </Link>
+        )
+    }) : [];
 
     return (
         <div>
-            {movieElements}
+            <h2>Жанр</h2>
+            <div className={classes.item}>
+                <div className={classes.movies}>
+                    {movieElements}
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import classes from './Checklist.module.css';
 import { movies as moviesData } from '../../data/movies';
-
+import { Link } from 'react-router-dom';
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
 const Checklist = (props) => {
     const n = getRandomArbitrary(1, 6);
-    
+
     const shuffledMovies = moviesData.sort(() => 0.5 - Math.random());
 
     const randomMovies = shuffledMovies.slice(0, n);
@@ -30,12 +30,15 @@ const Checklist = (props) => {
                 <img src={item.image} alt="" />
             </div>
             <div className={classes.info}>
-                <h2 className={classes.title}>{item.title}</h2><span className={classes.rating}>{item.rating}/10</span>
+                <Link key={item.id} to={`movies/${item.id}`} className={classes.link}>
+                    <h2 className={classes.title}>{item.title}</h2>
+                </Link>
+                <span className={classes.rating}>{item.rating}/10</span>
+
                 <p className={classes.originalTitle}>{item.originalTitle}</p>
                 <p className={classes.outline}>{item.outline}</p>
-                <div className={classes.description}>{item.description.slice(0,255)}...</div>
+                <div className={classes.description}>{item.description.slice(0, 255)}...</div>
             </div>
-            {/* <textarea></textarea> */}
         </div>
     ))
 
