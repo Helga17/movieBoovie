@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Watchlist = (props) => {
 
-    // let { id } = useParams();
     let watchlistMovies = JSON.parse(localStorage.getItem('movies'));
 
     const [movies, setMovies] = useState(watchlistMovies);

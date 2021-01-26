@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classes from './Actor.module.css';
 import { useParams, Link } from "react-router-dom";
-// import { movies as moviesData } from '../../data/movies';
 import axios from 'axios';
 
 const Actor = (props) => {
@@ -35,7 +34,7 @@ const Actor = (props) => {
     return (
         <div>
             <div className={classes.actor}>
-                <span key={actor.id}><img src={imageLink} alt="" /></span>
+                <span key={actor.id}><img src={imageLink} alt={'actor.first_name'} /></span>
                 <div className={classes.info}>
                     <div className={classes.name}>{actor.first_name} {actor.last_name}</div> 
                     <div className={classes.born}>Народився(-лася): {actor.birthday}</div>

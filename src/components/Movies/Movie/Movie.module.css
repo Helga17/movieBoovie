@@ -32,7 +32,7 @@ p{
 .subtitle {
     font-size: 20px;
     font-weight: 700;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
 .description {
@@ -68,8 +68,19 @@ p{
 .link{
     text-decoration: none;
     color: #2d30f1;
+    max-width: 140px;
+    display: block;
+    width: 70px;
+    font-size: 16px;
+}
+
+.linkDirector{
+    text-decoration: none;
+    color: #282C34;
 }
 
 .role{
-    font-size: 14px;
+    margin-top: 10px;
+    display: inline;
+    font-size: 15px;
 }

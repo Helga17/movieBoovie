@@ -11,9 +11,9 @@ const Populars = (props) => {
     const [popularMovies, setPopularMovies] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/movies?limit=7')
+        axios.get('http://127.0.0.1:8000/api/movies', {params: {per_page: 7, page: 1}})
             .then(result => {
-                const moviesData = result.data;
+                const moviesData = result.data.data;
 
                 setPopularMovies(moviesData);
             });

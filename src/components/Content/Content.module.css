@@ -10,6 +10,11 @@ img {
     width: 380px;
     height: 225px;
     border-radius: 10px;
+    overflow-x: visible;
+    overflow: visible;
+    overflow: hidden;
+
+  
 }
 
 .text{

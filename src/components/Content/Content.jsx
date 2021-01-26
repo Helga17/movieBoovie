@@ -11,9 +11,9 @@ const Content = (props) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/movies?limit=3')
+        axios.get('http://127.0.0.1:8000/api/movies?limit=3', {params: {per_page: 3, page: 1}})
             .then(result => {
-                const moviesData = result.data;
+                const moviesData = result.data.data;
 
                 setMovies(moviesData);
             });

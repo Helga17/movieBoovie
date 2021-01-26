@@ -31,7 +31,7 @@ const Genre = (props) => {
 
     return (
         <div>
-            <h2>Жанр</h2>
+            <h2>{genre.displayedTitle}</h2>
             <div className={classes.item}>
                 <div className={classes.movies}>
                     {movieElements}

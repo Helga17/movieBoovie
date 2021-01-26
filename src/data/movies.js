@@ -205,7 +205,7 @@ export const movies = [
             { id: 3, image: 'https://i.insider.com/564cd4022491f990008b63a0?width=1100&format=jpeg&auto=webp' },
             { id: 4, image: 'https://www.pride.com/sites/default/files/carol-sarah-paulson.jpg' }
         ],
-        actorIds: [36, 37, 38, 39],
+        // actorIds: [36, 37, 38, 39],
         directorIds: [66]
     },
     {

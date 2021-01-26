@@ -3,7 +3,6 @@ import classes from './Movie.module.css';
 import Overview from '../../Overview/Overview';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
-// import { directors } from '../../../data/directors';
 
 const Movie = (props) => {
     let { id } = useParams();
@@ -21,16 +20,6 @@ const Movie = (props) => {
 
     const overviewElement = <Overview item={movie} />
 
-    let actorElements = movie.actors ? movie.actors.map(actor => {
-        const imageLink = `http://127.0.0.1:8000/${actor.image}`;
-
-        return (
-            <div key={actor.id} className={classes.actor}><img src={imageLink} alt={""} />
-                <p><Link className={classes.link} to={`/actors/${actor.id}`}>{actor.first_name} {actor.last_name}</Link></p>
-                <p className={classes.role}>{actor.role}</p></div>
-        );
-    }) : [];
-
     let momentElements = movie.moments ? movie.moments.map(moment => {
         const imageLink = `http://127.0.0.1:8000/${moment.image}`;
         return (
@@ -38,11 +27,22 @@ const Movie = (props) => {
         );
     }) : [];
 
-    // let directorElements = movie.directors ? movie.directors.map(director => {
-    //     return (
-    //         <span key={director.id}>{director.name}</span>
-    //     );
-    // }) : [];
+    let actorElements = movie.actors ? movie.actors.map(actor => {
+        const imageLink = `http://127.0.0.1:8000/${actor.image}`;
+
+        return (
+            <div key={actor.id} className={classes.actor}><img src={imageLink} alt={actor.first_name} />
+                <p><Link className={classes.link} to={`/actors/${actor.id}`}>{actor.first_name} {actor.last_name}</Link></p>
+                <p className={classes.role}>{actor.role_title}</p>
+                </div>
+        );
+    }) : [];
+
+    let directorElements = movie.directors ? movie.directors.map(director => {
+        return (
+            <span key={director.id}><Link className={classes.linkDirector} to={`/directors/${director.id}`}>{director.first_name} {director.last_name}</Link></span>
+        );
+    }) : [];
 
     return (movie &&
         <div className={classes.movies}>
@@ -65,7 +65,7 @@ const Movie = (props) => {
             <div className={classes.subtitle}>
                 <span>Режисер:</span>
                 <span className={classes.filmmaker}>
-                    {/* {directorElements} */}
+                    {directorElements}
                 </span>
             </div>
         </div>

@@ -22,10 +22,10 @@ function Overview(props) {
     function handleRating (newRating, name) {
         console.log(newRating, name);
     }
-    
+
 
     let genreElements = props.item.genres ? props.item.genres.map(genre => {
-        return <span key={genre.id}><Link to={'/genres/' + genre.id}>{genre.displayedTitle}</Link></span>
+        return <span key={genre.id}><Link className={classes.link} to={'/genres/' + genre.id}>{genre.displayedTitle}</Link></span>
     }) : [];
 
     // добавление фильма в watchlist 
@@ -78,7 +78,7 @@ function Overview(props) {
                 />
             
             <p >{props.item.originalTitle}</p>
-            <p>{props.item.outline} {genreElements} | {props.item.year}</p>
+            <p>{props.item.duration} {genreElements}|{ props.item.year}</p>
             <div className={classes.description}>{props.item.description}</div>
 
             <Button/>

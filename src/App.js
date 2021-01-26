@@ -9,6 +9,7 @@ import Actor from './components/Actor/Actor';
 import Watchlist from './components/Watchlist/Watchlist';
 import Checklist from './components/Checklist/Checklist';
 import Authorization from './components/Authorization/Authorization';
+import Registration from './components/Registration/Registration';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Fragment } from 'react';
 
@@ -18,7 +19,8 @@ const App = () => {
       <div className="app-wrapper">
         <div className="app-wrapper-content">
           <Switch>
-            <Route path='/profile' component={Authorization} />
+            <Route path='/login' component={Authorization} />
+            <Route path='/register' component={Registration} />
             <Fragment>
               <Header />
               <Route path='/' exact component={Content} />
@@ -27,6 +29,7 @@ const App = () => {
               <Route path='/checklist' component={Checklist} />
               <Route path='/genres/:id' component={Genre} />
               <Route path='/actors/:id' component={Actor} />
+              <Route path='/directors/:id' component={Actor} />
               <Route path='/movies/:id' component={Movie} />
               <Footer />
             </Fragment>
