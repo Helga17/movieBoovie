@@ -11,18 +11,36 @@ import Checklist from './components/Checklist/Checklist';
 import Authorization from './components/Authorization/Authorization';
 import Registration from './components/Registration/Registration';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  const token = localStorage.getItem('passport') || '';
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  }
+
+  useEffect(() => {
+    if (user === null && token.length > 0) {
+      axios.get('http://127.0.0.1:8000/api/user', config)
+        .then(result => {
+          setUser(result.data);
+        });
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <div className="app-wrapper-content">
           <Switch>
-            <Route path='/login' component={Authorization} />
-            <Route path='/register' component={Registration} />
+            <Route path='/login' render={() => <Authorization setUser={setUser}/>} />
+            <Route path='/register' render={() => <Registration setUser={setUser}/>}/>
             <Fragment>
-              <Header />
+              <Header currentUser={user} setUser={setUser}/>
               <Route path='/' exact component={Content} />
               <Route path='/allmovies' component={Movies} />
               <Route path='/watchlist' component={Watchlist} />

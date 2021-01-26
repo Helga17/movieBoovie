@@ -3,44 +3,27 @@ import { Link } from 'react-router-dom';
 import classes from './Movies.module.css';
 import axios from 'axios';
 
-function Title(props) {
-    return (
-        <Link className={classes.link} key={props.item.id} to={`movies/${props.item.id}`}>
-            <div className={classes.item}>
-
-                <div className={classes.item}>
-                    <img src={props.item.image} alt="" />
-                    <div className={classes.title}>{props.item.title}</div>
-
-                </div>
-            </div>
-        </Link>
-    );
-}
-
 const Movies = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
-    const [moviesPerPage, setMoviesPerPage] = useState(1);
+    const [moviesPerPage, setMoviesPerPage] = useState(1);  //perPage количество элементов на странице
 
     function getMovies(per_page, page) {
         axios.get('http://127.0.0.1:8000/api/movies', { params: { per_page: per_page, page: page } })
-        .then(result => {
-            const moviesData = result.data.data;
+            .then(result => {
+                const moviesData = result.data.data;
 
-
-            setMovies(moviesData);
-            setCurrentPage(result.data.current_page);
-            setLastPage(result.data.last_page);
-        });
+                setMovies(moviesData);
+                setCurrentPage(result.data.current_page);
+                setLastPage(result.data.last_page);
+            });
     }
 
     useEffect(() => {
         getMovies(moviesPerPage, 1);
     }, []);
-
 
     function handlePaginate(page) {
         if (currentPage === page) {
@@ -49,8 +32,6 @@ const Movies = (props) => {
 
         getMovies(moviesPerPage, page);
     }
-
-    //perPage количество элементов на странице
 
     const pageNumbers = [];
     const delimeter = 4;
@@ -66,17 +47,12 @@ const Movies = (props) => {
 
         pageNumbers.push(i);
     }
-console.log(pageNumbers, 'asd')
+    
     const renderPageNumbers = pageNumbers.map(number => {
         const style = currentPage === number ? { color: 'red' } : { color: 'black' };
-        
+
         return (
-            <span
-                style={style}
-                key={number}
-                id={number}
-                onClick={() => handlePaginate(number)}
-            >
+            <span style={style} key={number} id={number} onClick={() => handlePaginate(number)}>
                 {number}
             </span>
         );
@@ -88,7 +64,6 @@ console.log(pageNumbers, 'asd')
         }
 
         const page = currentPage - 1;
-
         getMovies(moviesPerPage, page);
     }
 
@@ -101,8 +76,22 @@ console.log(pageNumbers, 'asd')
         getMovies(moviesPerPage, page);
     }
 
+    let movieElements = movies.map(movie => {
+        return (
+            <div>
+                <Link className={classes.link} key={movie.id} to={`movies/${movie.id}`}>
+                    <div className={classes.item}>
 
-    let movieElements = movies.map(movie => <Title key={movie.id} item={movie} />);
+                        <div className={classes.item}>
+                            <img src={movie.image} alt="" />
+                            <div className={classes.title}>{movie.title}</div>
+                        </div>
+
+                    </div>
+                </Link>
+            </div>
+        );
+    });
     return (
         <div>
             <div className={classes.item}>
@@ -110,11 +99,11 @@ console.log(pageNumbers, 'asd')
                     {movieElements}
                 </div>
                 <div className={classes.paginate}>
-                    <span style={currentPage === 1 ? {color: "red"} : {color: "black"}} className={classes.prev} onClick={getPrevious}>Попередня</span>
+                    <span style={currentPage === 1 ? { color: "red" } : { color: "black" }} className={classes.prev} onClick={getPrevious}>Попередня</span>
                         {renderPageNumbers}
-                    <span style={currentPage === lastPage ? {color: "red"} : {color: "black"}} className={classes.next} onClick={getNext}>Наступна</span>                  
+                    <span style={currentPage === lastPage ? { color: "red" } : { color: "black" }} className={classes.next} onClick={getNext}>Наступна</span>
                 </div>
-               
+
             </div>
         </div>
 

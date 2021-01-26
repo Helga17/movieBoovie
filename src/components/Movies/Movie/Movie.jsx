@@ -34,7 +34,7 @@ const Movie = (props) => {
             <div key={actor.id} className={classes.actor}><img src={imageLink} alt={actor.first_name} />
                 <p><Link className={classes.link} to={`/actors/${actor.id}`}>{actor.first_name} {actor.last_name}</Link></p>
                 <p className={classes.role}>{actor.role_title}</p>
-                </div>
+            </div>
         );
     }) : [];
 

@@ -63,14 +63,15 @@ const Slider = (props) => {
 
     });
 
-    return (<div>
-        <div className={classes.trend}>
-            <button className={classes.prev} onClick={getPrevious}></button>
-            {elements}
-            <button className={classes.next} onClick={getNext}></button>
+    return (
+        <div>
+            <div className={classes.trend}>
+                <button className={classes.prev} onClick={getPrevious}></button>
+                {elements}
+                <button className={classes.next} onClick={getNext}></button>
+            </div>
+            {activeElement && <InfoBlock activeElement={activeElement} />}
         </div>
-        {activeElement && <InfoBlock activeElement={activeElement} />}
-    </div>
     );
 }
 
