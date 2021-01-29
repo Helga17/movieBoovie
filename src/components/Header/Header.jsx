@@ -3,8 +3,6 @@ import classes from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-// навигация
-
 const Header = (props) => {
 
     const logout = () => {

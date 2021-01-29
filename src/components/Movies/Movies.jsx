@@ -8,7 +8,7 @@ const Movies = (props) => {
     const [movies, setMovies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
-    const [moviesPerPage, setMoviesPerPage] = useState(1);  //perPage количество элементов на странице
+    const [moviesPerPage, setMoviesPerPage] = useState(14);  //perPage количество элементов на странице
 
     function getMovies(per_page, page) {
         axios.get('http://127.0.0.1:8000/api/movies', { params: { per_page: per_page, page: page } })
